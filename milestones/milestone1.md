@@ -24,8 +24,8 @@ This unit, be sure to complete all tasks listed below. To complete a task, place
 
 ### 2. What were some challenges your group faced in this unit?
 
-[👉🏾👉🏾👉🏾 your answer here]
+We did not really face any issues in this milestone. It was just the features that were a bit challenging to decide
 
 ### 3. What additional support will you need in upcoming units as you continue to work on your final project?
 
-[👉🏾👉🏾👉🏾 your answer here]
+Null
