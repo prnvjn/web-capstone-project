@@ -9,8 +9,6 @@ Reference the Writing User Stories final project guide in the course portal for 
 
 ## Draft User Stories
 
-[👉🏾👉🏾👉🏾 Include at least at least 10 user stories in this format:]
-
 
 1. As a registered user, I want to create a detailed profile with my preferences, lifestyle, and budget so that potential roommates can understand my needs.
 
@@ -23,3 +21,4 @@ Reference the Writing User Stories final project guide in the course portal for 
 5. As a roommate seeker, I want to create a detailed listing for my apartment or room, including location, rent, and preferred roommate qualities.
 
 6. As a roommate seeker, I want to browse profiles of potential roommates who are interested in my listing and view their compatibility.
+
