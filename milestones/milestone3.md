@@ -32,9 +32,9 @@ Figuring of the flow of the web app & identifying the scope of each milestone.
 Yes.
 
 ### Which features and user stories would you consider “at risk”? How will you change your plan if those items remain “at risk”?
-
+We are not sure how to implement the messaging feature. We will have to do more research on how to implement it. If we are not able to implement it, then we will provide with a phone number or email address to contact the listing owner.
 
 
 ### 5. What additional support will you need in upcoming units as you continue to work on your final project?
 
-[👉🏾👉🏾👉🏾 your answer here]
+None
