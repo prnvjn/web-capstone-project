@@ -25,15 +25,15 @@ Setting up the project board
 
 ### 2. What were some challenges your group faced in this unit?
 
+Figuring of the flow of the web app & identifying the scope of each milestone.
 
+### 3. Did you finish all of your tasks in your sprint plan for this week? If you did not finish all of the planned tasks, how would you prioritize the remaining tasks on your list?
 
-### Did you finish all of your tasks in your sprint plan for this week? If you did not finish all of the planned tasks, how would you prioritize the remaining tasks on your list?
-
-[👉🏾👉🏾👉🏾 your answer here]
+Yes.
 
 ### Which features and user stories would you consider “at risk”? How will you change your plan if those items remain “at risk”?
 
-[👉🏾👉🏾👉🏾 your answer here]
+
 
 ### 5. What additional support will you need in upcoming units as you continue to work on your final project?
 
