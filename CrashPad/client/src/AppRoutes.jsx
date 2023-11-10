@@ -1,12 +1,14 @@
 import { useRoutes } from 'react-router-dom';
 import ProfileCreation from './pages/ProfileCreation';
+import LandingPage from './pages/LandingPage';
+import LoginPage from './pages/LoginPage';
 
 
 const AppRoutes = () => {
     let routes = useRoutes([
+        { path: "/", element: <LandingPage /> },
         { path: "/create-profile", element: <ProfileCreation /> },
-        // Add other routes here
-        // { path: "/other-path", element: <OtherComponent /> },
+        { path: "/login", element: <LoginPage /> },
     ]);
 
     return routes;
