@@ -30,12 +30,12 @@ Backend:Node.js
 
 ## Features
 
-### [User Registration and Profile Creation]
+### [User Registration and Profile Creation]✅
 
 Users can create an account with basic information (name, email, password),
 Users can create a basic profile with details like gender, age, and a short description.
 
-[gif goes here]
+<img src="./planning/images/profilecreation.gif">
 
 ### [Search for Roommates]
 
@@ -44,12 +44,13 @@ Basic filtering options for gender, budget,tempory or long-term accommodation an
 
 [gif goes here]
 
-### [ Roommate Listings]
+### [ Apartments Listings]✅
 
-Users can view a list of potential roommates with their basic profile information.
-Limited profile details, including a short bio and budget range.
+Users can view a list of potential apartments with their basic information.
+Limited profile details, including title, description and pricing.
 
-[gif goes here]
+
+<img src="./planning/images/apartmentListing.gif">
 
 ### [ADDITIONAL FEATURES GO HERE - ADD ALL FEATURES HERE IN THE FORMAT ABOVE; you will check these off and add gifs as you complete them]
 
