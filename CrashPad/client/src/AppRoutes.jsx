@@ -2,8 +2,8 @@ import { useRoutes } from 'react-router-dom';
 import ProfileCreation from './pages/ProfileCreation';
 import LandingPage from './pages/LandingPage';
 import LoginPage from './pages/LoginPage';
-
 import ViewListings from './pages/ViewListings';
+import AddListing from './pages/AddListing'; // Adjust the path as needed
 
 
 
@@ -14,9 +14,10 @@ const AppRoutes = () => {
         { path: "/login", element: <LoginPage /> },
 
         // Add other routes here
-        // { path: "/other-path", element: <OtherComponent /> },
+        
+        { path: "/view-listings", element: <ViewListings /> },
+        { path: "/add-listing", element: <AddListing /> },
 
-        {path: "/view-listings", element: <ViewListings/>}
     ]);
 
     return routes;
