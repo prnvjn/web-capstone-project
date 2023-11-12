@@ -36,6 +36,10 @@ const Navbar = () => {
                 </Typography>
                 {auth ? (
                     <div>
+                    <Button color="inherit" component={Link} to="/add-listing">
+                        Add Listing
+                        </Button>
+                        
                         <IconButton
                             size="large"
                             onClick={handleMenu}
