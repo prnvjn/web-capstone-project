@@ -4,6 +4,7 @@ import { AuthProvider } from './context/AuthContext'; // Adjust the path as need
 import Navbar from './components/Navbar';
 import AppRoutes from './AppRoutes';
 
+
 function App() {
     return (
         <AuthProvider>
