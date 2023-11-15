@@ -4,6 +4,7 @@ import passport from 'passport'
 import session from 'express-session'
 import { GitHub } from './config/auth.js'
 import authRoutes from './routes/auth.js'
+import listingRoutes from './routes/listingRoutes.js'
 const app = express()
 app.use(express.json())
 app.use(cors())
@@ -29,17 +30,18 @@ passport.deserializeUser((user, done) => {
   done(null, user)
 })
 
+
 app.get('/', (req, res) => {
-    res.status(200).send('<h1 style="text-align: center; margin-top: 50px;"> Crash Pad</h1>')
+  res.redirect('http://localhost:5173')
 })
-app.get('/welcome', (req, res) => {
-  res.status(200).send('<h1 style="text-align: center; margin-top: 50px;"> Crash Pad </h1>')
-})
+
 app.get('/error',(req, res) => {
   res.status(200).send('<h1 style="text-align: center; margin-top: 50px;"> something went wrong</h1>')
 })
 
 app.use('/auth', authRoutes)
+
+app.use('api/listings',listingRoutes)
 
 const PORT = process.env.PORT || 3001
 

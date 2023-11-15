@@ -1,5 +1,6 @@
 import { pool } from './database.js'
 import './dotenv.js'
+import { apartmentsData } from './data/seed.js'
 // import { fileURLToPath } from 'url'
 // import path, { dirname } from 'path'
 // import fs from 'fs'
@@ -112,6 +113,71 @@ const createUsersTable = async () => {
     console.error('⚠️ error creating users table', err)
   }
 }
+const createUsersListing = async () => {
+    const createUsersListingQuery = `
+    CREATE TABLE IF NOT EXISTS listings (
+        id SERIAL PRIMARY KEY,
+        user_id INTEGER REFERENCES users(id) NOT NULL,
+        name VARCHAR(255) NOT NULL,
+        address VARCHAR(255) NOT NULL,
+        price INTEGER NOT NULL,
+        bedrooms INTEGER NOT NULL,
+        bathrooms INTEGER NOT NULL,
+        amenities TEXT[] NOT NULL,
+        description TEXT NOT NULL,
+        image VARCHAR(255) NOT NULL,
+        age_range INTEGER[] NOT NULL,
+        gender VARCHAR(10) NOT NULL,
+        smoking_allowed BOOLEAN NOT NULL,
+        drinking_allowed BOOLEAN NOT NULL,
+        vegan_friendly BOOLEAN NOT NULL,
+        pets_allowed BOOLEAN NOT NULL
+      );`
+      try {
+            const res = await pool.query(createUsersListingQuery)
+            console.log('🎉 listing table created successfully')
+          }
+          catch (error) {
+            console.error('⚠️ error creating userlisting table', error)
+          }
+}
+const seedUserListingTable = async () => {
+  await createUsersListing()
+
+//   tripsData.forEach((trip) => {
+//     const insertQuery = {
+//       text: 'INSERT INTO trips (title, description, img_url, num_days, start_date, end_date, total_cost) VALUES ($1, $2, $3, $4, $5, $6, $7)'
+//     }
+  
+//     const values = [
+//       trip.title,
+//       trip.description,
+//       trip.img_url,
+//       trip.num_days,
+//       trip.start_date,
+//       trip.end_date,
+//       trip.total_cost
+//     ]
+  apartmentsData.forEach((apt)=>{
+    const insertQuery = {
+        text: 'INSERT INTO listings ( user_id, name, address, price, bedrooms, bathrooms, amenities, description, image, age_range, gender, smoking_allowed, drinking_allowed, vegan_friendly, pets_allowed) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15) '
+    }
+    const values = [
+        apt.user_id,apt.name,apt.address,apt.price,apt.bedrooms, apt.bathrooms,apt.amenities,apt.description, apt.image, apt.roommatePreferences.ageRange,apt.roommatePreferences.gender,apt.roommatePreferences.smokingAllowed,apt.roommatePreferences.drinkingAllowed, apt.roommatePreferences.veganFriendly, apt.roommatePreferences.petsAllowed
+    ]
+  
+  
+    try {
+      pool.query(insertQuery, values)
+      console.log(`✅ ${apt.name} added successfully`)
+    }
+    catch (err) {
+      console.error('⚠️ error inserting listing', err)
+    }
+  
+  })}
+
+
 
 // const createTripsUsersTable = async () => {
 //   const createTripsUsersTableQuery = `
@@ -151,48 +217,13 @@ const createUsersTable = async () => {
 //   }
 // }
 
-// const seedTripsTable = async () => {
-//   await createTripsTable()
 
-//   tripsData.forEach((trip) => {
-//     const insertQuery = {
-//       text: 'INSERT INTO trips (title, description, img_url, num_days, start_date, end_date, total_cost) VALUES ($1, $2, $3, $4, $5, $6, $7)'
-//     }
-  
-//     const values = [
-//       trip.title,
-//       trip.description,
-//       trip.img_url,
-//       trip.num_days,
-//       trip.start_date,
-//       trip.end_date,
-//       trip.total_cost
-//     ]
-  
-//     // Prefer try/catch instead of callback
-//     // pool.query(insertQuery, values, (err, res) => {
-//     //   if (err) {
-//     //     console.error('⚠️ error inserting trip', err)
-//     //     return
-//     //   }
-  
-//     //   console.log(`✅ ${trip.title} added successfully`)
-//     // })
-//     try {
-//       pool.query(insertQuery, values)
-//       console.log(`✅ ${trip.title} added successfully`)
-//     }
-//     catch (err) {
-//       console.error('⚠️ error inserting trip', err)
-//     }
-  
-//   })
-// }
 
 // seedTripsTable()
 // createDestinationsTable()
 // createActivitiesTable()
 // createTripsDestinationsTable()
 createUsersTable()
+seedUserListingTable()
 // createTripsUsersTable()
 // createUsersTripsTable()
