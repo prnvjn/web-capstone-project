@@ -32,6 +32,13 @@ passport.deserializeUser((user, done) => {
 app.get('/', (req, res) => {
     res.status(200).send('<h1 style="text-align: center; margin-top: 50px;"> Crash Pad</h1>')
 })
+app.get('/welcome', (req, res) => {
+  res.status(200).send('<h1 style="text-align: center; margin-top: 50px;"> Crash Pad </h1>')
+})
+app.get('/error',(req, res) => {
+  res.status(200).send('<h1 style="text-align: center; margin-top: 50px;"> something went wrong</h1>')
+})
+
 app.use('/auth', authRoutes)
 
 const PORT = process.env.PORT || 3001

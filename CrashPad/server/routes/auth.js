@@ -36,8 +36,8 @@ router.get(
 router.get(
   '/github/callback',
   passport.authenticate('github', {
-    successRedirect: '/',
-    failureRedirect: '/'
+    successRedirect: '/welcome',
+    failureRedirect: '/error'
   })
 )
 
