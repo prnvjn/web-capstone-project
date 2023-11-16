@@ -13,7 +13,6 @@ const apartmentsData =
         "description": "A comfortable loft in the heart of the city, close to all major attractions.",
         "image": "https://placehold.co/400x400",
         "roommatePreferences": {
-          "ageRange": [20, 35],
           "gender": "Any",
           "smokingAllowed": false,
           "drinkingAllowed": true,
@@ -32,7 +31,6 @@ const apartmentsData =
         "description": "A spacious home in a quiet suburban neighborhood with a lovely backyard.",
         "image": "https://placehold.co/400x400",
         "roommatePreferences": {
-          "ageRange": [25, 40],
           "gender": "Female",
           "smokingAllowed": false,
           "drinkingAllowed": true,
@@ -51,7 +49,6 @@ const apartmentsData =
         "description": "A sleek and modern apartment with great city views and access to a fitness center.",
         "image": "https://placehold.co/400x400",
         "roommatePreferences": {
-          "ageRange": [22, 35],
           "gender": "Any",
           "smokingAllowed": true,
           "drinkingAllowed": true,
@@ -71,7 +68,6 @@ const apartmentsData =
         "description": "A charming cottage surrounded by nature, perfect for a peaceful living experience.",
         "image": "https://placehold.co/400x400",
         "roommatePreferences": {
-          "ageRange": [30, 50],
           "gender": "Any",
           "smokingAllowed": false,
           "drinkingAllowed": false,
@@ -91,7 +87,6 @@ const apartmentsData =
         "description": "A modern condo with stunning ocean views, steps away from the beach.",
         "image": "https://placehold.co/400x400",
         "roommatePreferences": {
-          "ageRange": [25, 40],
           "gender": "Male",
           "smokingAllowed": false,
           "drinkingAllowed": true,
