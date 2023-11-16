@@ -41,7 +41,7 @@ app.get('/error',(req, res) => {
 
 app.use('/auth', authRoutes)
 
-app.use('api/listings',listingRoutes)
+app.use('/api/listings',listingRoutes)
 
 const PORT = process.env.PORT || 3001
 

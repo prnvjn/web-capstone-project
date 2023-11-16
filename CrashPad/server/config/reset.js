@@ -115,7 +115,8 @@ const createUsersTable = async () => {
 }
 const createUsersListing = async () => {
     const createUsersListingQuery = `
-    CREATE TABLE IF NOT EXISTS listings (
+    DROP TABLE IF EXISTS listings;
+    CREATE TABLE listings (
         id SERIAL PRIMARY KEY,
         user_id INTEGER REFERENCES users(id) NOT NULL,
         name VARCHAR(255) NOT NULL,

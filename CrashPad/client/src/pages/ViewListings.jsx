@@ -2,11 +2,11 @@ import { ListingView } from "../components/ListingView"
 
 
 
-const ViewListings = () => {
+const ViewListings = ({user,data}) => {
 
 
   return (<div className="container mx-auto ">
-LISTING
+  {data.map((apt)=><ListingView key={apt.id} data={apt}/>)}
   </div> )
   
   
