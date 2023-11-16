@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import { TextField, Button, Checkbox, FormControlLabel, FormGroup, MenuItem, Select, InputLabel, FormControl, Chip, OutlinedInput, Box } from '@mui/material';
+import { createListing } from '../services/CustomListingsAPI';
+
 
 const AddListing = () => {
     const [listing, setListing] = useState({
+        user_id: 1,
         name: '',
         address: '',
         price: '',
@@ -10,6 +13,7 @@ const AddListing = () => {
         bathrooms: '',
         amenities: [],
         description: '',
+        image: 'https://via.placeholder.com/400',
         roommatePreferences: {
             gender: 'Any',
             smokingAllowed: false,
@@ -44,10 +48,19 @@ const AddListing = () => {
         });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        // Submit the form data
-        console.log(listing);
+        const listingData = {
+            ...listing,
+            image: listing.image || 'https://via.placeholder.com/400' // Ensure a default image is set
+        };
+        try {
+            await createListing(listingData);
+            window.location.href = '/view-listings';
+        } catch (error) {
+            console.error(error);
+            // handle error here
+        }
     };
 
     const ITEM_HEIGHT = 48;
