@@ -15,7 +15,7 @@ useEffect(() => {
     
 
     const fetchUSERListings = async () => {
-      const response = await fetch(`${API_URL}/api/listings/user/2`)
+      const response = await fetch(`${API_URL}/api/listings/user/${user.id}`)
 
       const data = await response.json()
       
