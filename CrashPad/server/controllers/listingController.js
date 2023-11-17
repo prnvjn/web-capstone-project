@@ -113,6 +113,17 @@ const updateListing = async (req, res) => {
         res.status(500).send('Server Error');
     }
 };
+const deleteItem = async (req, res) => {
+    try {
+        const result = await pool.query('DELETE FROM listings WHERE id = $1', [req.params.id]);
+        console.log(result.rows);
+        res.json(result.rows);
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Server Error');
+        res.status(500).send(error.message);
+    }
+};
 export default {
-    getAllListings,getListingbyuserID,getListingbyId,createListing,updateListing
+    getAllListings,getListingbyuserID,getListingbyId,createListing,updateListing, deleteItem
 }

@@ -9,4 +9,5 @@ router.get('/:id',listingController.getListingbyId)
 router.post('/add-listing', listingController.createListing);
 router.put('/edit-listing/:id', listingController.updateListing);
 
+router.delete('/delete/:id', listingController.deleteItem);
 export default router

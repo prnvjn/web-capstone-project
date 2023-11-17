@@ -5,7 +5,7 @@ export const Profile = () => {
 
     const {user} = useAuth()
   return (
-    <div> 
+    <div className='pl-4 '> 
        
      <div className='w-48 ml-auto'>
         <img className='rounded-xl' src={user.avatarurl} />

@@ -3,6 +3,7 @@ import { useAuth } from '../context/AuthContext'
 import UserListing from '../components/userListing'
 import EditListing from './EditListing'
 import { Profile } from '../components/Profile'
+import { deleteItem } from '../services/CustomListingsAPI'
 
 const ProfileDashBoard = () => {
 
@@ -13,23 +14,46 @@ const API_URL = 'http://localhost:3001'
 // const [user, setUser] = useState([])
 const [listings, setListings] = useState([])
 const [editId, setEditId]=useState(null)
+const [deleteListing,setDeleteListing] = useState(null)
+
 useEffect(() => {
-    
+    fetchUSERListings()
+  });
 
-    const fetchUSERListings = async () => {
-      const response = await fetch(`${API_URL}/api/listings/user/${user.id}`)
 
-      const data = await response.json()
+  useEffect(()=>{
+    const deleted = async () =>{
+      if (deleteListing !== null ){
+        await deleteItem(deleteListing)
+      }
       
-       setListings(data)
-    }
+    } 
+    deleted()
+   
+
+  },[deleteListing])
+  
+  const fetchUSERListings = async () => {
+    const response = await fetch(`${API_URL}/api/listings/user/${user.id}`)
+
+    const data = await response.json()
+    
+     setListings(data)
+     
+  }
   
 
-    fetchUSERListings()
-  }, []);
+
+
   const handleEdit = (e)=>{
     setEditId(e)
-    console.log(e)
+    
+  }
+
+  const handleDelete = (e)=>{
+    setDeleteListing(e)
+    setEditId(null)
+    console.log(deleteListing)
   }
 
   return (
@@ -38,10 +62,10 @@ useEffect(() => {
        <div className=' max-h-screen'>
         <h2 className='text-3xl font-bold'>My Listings</h2>
 
-        {listings.map((listing)=><UserListing key={listing.id} handleEdit={handleEdit} listing={listing}/>)} </div>
+        {listings.map((listing)=><UserListing key={listing.id} handleEdit={handleEdit} listing={listing} handleDelete={handleDelete}/>)} </div>
        <div>
         {editId == null ? <Profile  /> :<EditListing id={editId} />}
-        {console.log(editId)}
+        
        </div>
     </div>
   )
