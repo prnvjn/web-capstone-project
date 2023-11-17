@@ -77,8 +77,8 @@ export const updateListing = async (req, res) => {
     const {
         name, address, price, bedrooms, 
         bathrooms, amenities, description, image, 
-        gender, smoking_allowed, drinking_allowed, 
-        vegan_friendly, pets_allowed
+        gender, smokingAllowed, drinkingAllowed, 
+        veganFriendly, petsAllowed
     } = req.body;
 
     const query = `
@@ -103,8 +103,8 @@ export const updateListing = async (req, res) => {
     const values = [
         name, address, price, bedrooms, 
         bathrooms, amenities, description, image, 
-        gender, smoking_allowed, drinking_allowed, 
-        vegan_friendly, pets_allowed, id
+        gender, smokingAllowed, drinkingAllowed, 
+        veganFriendly, petsAllowed, id
     ];
 
     try {

@@ -8,7 +8,7 @@ import AppRoutes from './AppRoutes';
 function App() {
     const API_URL = 'http://localhost:3001' 
     const [user, setUser] = useState([])
-    const [listings, setListings] = useState([])
+
 
     useEffect(() => {
         const getUser = async () => {
@@ -17,17 +17,12 @@ function App() {
           setUser(json.user)
         }
     
-        const fetchListings = async () => {
-          const response = await fetch(`${API_URL}/api/listings`)
-    
-          const data = await response.json()
-          
-           setListings(data)
-        }
-      
+       
         getUser()
-        fetchListings()
+       
       }, []);
+
+ 
 
       const logout = async () => {
         const url = `${API_URL}/auth/logout`
@@ -38,11 +33,11 @@ function App() {
 
 
     return (
-        <AuthProvider user={user} data={listings} logout={logout}>
+        <AuthProvider user={user}  logout={logout} >
             <Router>
                 <Navbar  />
 
-                <AppRoutes user={user} listings={listings} url={API_URL}/>
+                <AppRoutes user={user}  url={API_URL}/>
             </Router>
         </AuthProvider>
     );

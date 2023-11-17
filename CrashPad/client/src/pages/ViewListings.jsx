@@ -1,15 +1,30 @@
+import { useEffect,useState } from "react";
 import { ListingView } from "../components/ListingView"
+import { getCustomListings } from "../services/CustomListingsAPI";
 
-
+ 
 // import React, { useState, useEffect } from 'react';
 // import { getCustomListings } from '../services/CustomListingsAPI';
 // import { Link } from 'react-router-dom';
 // import { LineStyle } from '@mui/icons-material';
+const ViewListings = () => {
+  
+  const [data, setApartmentsData] = useState([]);
+    useEffect(() => {
+      const fetchData = async () => {
+        try {
+          const data = await getCustomListings();
+          console.log("apaprj", data);
+          setApartmentsData(data);
+        } catch (error) {
+          console.error('Error fetching data:', error);
+        }
+      };
+  
+      fetchData();
+    }, []);
 
-const ViewListings = ({data}) => {
-
-
-  return (<div className="container mx-auto ">
+  return (<div className="container mx-auto flex flex-col items-stretch	 ">
   {data.map((apt)=><ListingView key={apt.id} data={apt}/>)
   }
   </div> )

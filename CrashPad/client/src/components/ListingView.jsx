@@ -3,7 +3,7 @@
 export const ListingView = (props) => {
   const data = props.data
   return (
-    <div className="flex gap-8 m-10 bg-slate-100  max-w-4xl shadow-sm rounded-lg">
+    <div className="flex gap-8 m-10 bg-slate-100  max-w-4xl shadow-sm rounded-lg mx-auto w-full ">
       <div >
         <img src={data.image} className="w-48 rounded-l-lg" />
       </div>

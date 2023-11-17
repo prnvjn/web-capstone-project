@@ -13,7 +13,7 @@ async function fetchWithErrorHandling(url, options) {
 }
 
 export const getCustomListings = async () => {
-    const url = '/api/view-listings';
+    const url = '/api/listings';
     return await fetchWithErrorHandling(url);
 }
 
@@ -23,7 +23,7 @@ export const getListingbyId = async (id) => {
 }
 
 export const deleteItem = async (id) => {
-    const url = `/api/listings/${id}`;
+    const url = `/api/listings/delete/${id}`;
     const options = {
         method: 'DELETE'
     };
@@ -31,7 +31,7 @@ export const deleteItem = async (id) => {
 };
 
 export const createListing = async (listing) => {
-    const url = '/api/add-listing';
+    const url = '/api/listings/add-listing';
     const options = {
         method: 'POST',
         headers: {
@@ -39,11 +39,13 @@ export const createListing = async (listing) => {
         },
         body: JSON.stringify(listing),
     };
+console.log(options)
     return await fetchWithErrorHandling(url, options);
+    
 }
 
 export const updateListing = async (id, updatedData) => {
-    const url = `/api/edit-listing/${id}`;
+    const url = `/api/listings/edit-listing/${id}`;
     const options = {
         method: 'PUT',
         headers: {

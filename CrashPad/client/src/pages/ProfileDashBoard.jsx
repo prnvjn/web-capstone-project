@@ -1,6 +1,8 @@
 import React,{useState,useEffect} from 'react'
 import { useAuth } from '../context/AuthContext'
 import UserListing from '../components/userListing'
+import EditListing from './EditListing'
+import { Profile } from '../components/Profile'
 
 const ProfileDashBoard = () => {
 
@@ -10,7 +12,7 @@ const {user} = useAuth()
 const API_URL = 'http://localhost:3001' 
 // const [user, setUser] = useState([])
 const [listings, setListings] = useState([])
-
+const [editId, setEditId]=useState(null)
 useEffect(() => {
     
 
@@ -25,13 +27,22 @@ useEffect(() => {
 
     fetchUSERListings()
   }, []);
-
+  const handleEdit = (e)=>{
+    setEditId(e)
+    console.log(e)
+  }
 
   return (
-    <div>ProfileDashBoard
+    <div className='container flex mx-auto gap-2 justify-center pt-10'>
         
-       <div>{listings.map((listing)=><UserListing listing={listing}/>)} </div>
-       <div></div>
+       <div className=' max-h-screen'>
+        <h2 className='text-3xl font-bold'>My Listings</h2>
+
+        {listings.map((listing)=><UserListing key={listing.id} handleEdit={handleEdit} listing={listing}/>)} </div>
+       <div>
+        {editId == null ? <Profile  /> :<EditListing id={editId} />}
+        {console.log(editId)}
+       </div>
     </div>
   )
 }

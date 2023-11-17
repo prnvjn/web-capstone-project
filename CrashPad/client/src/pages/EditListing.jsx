@@ -2,9 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { TextField, Button, Checkbox, FormControlLabel, FormGroup, MenuItem, Select, InputLabel, FormControl, Chip, OutlinedInput, Box } from '@mui/material';
 import { getListingbyId, updateListing } from '../services/CustomListingsAPI';
+import { useAuth } from '../context/AuthContext';
 
-const EditListing = () => {
-    const { id } = useParams();
+const EditListing = ({id}) => {
+   const {setReload} = useAuth()
     const navigate = useNavigate();
     const [listing, setListing] = useState({
         name: '',
@@ -54,7 +55,8 @@ const EditListing = () => {
         e.preventDefault();
         try {
             await updateListing(id, listing);
-            navigate('/view-listings');
+      console.log(setReload)
+      navigate("/")
         } catch (error) {
             console.error('Error updating listing:', error);
         }
