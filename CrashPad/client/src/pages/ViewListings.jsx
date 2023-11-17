@@ -6,11 +6,12 @@ import { ListingView } from "../components/ListingView"
 // import { Link } from 'react-router-dom';
 // import { LineStyle } from '@mui/icons-material';
 
-const ViewListings = ({user,data}) => {
+const ViewListings = ({data}) => {
 
 
   return (<div className="container mx-auto ">
-  {data.map((apt)=><ListingView key={apt.id} data={apt}/>)}
+  {data.map((apt)=><ListingView key={apt.id} data={apt}/>)
+  }
   </div> )
   
   

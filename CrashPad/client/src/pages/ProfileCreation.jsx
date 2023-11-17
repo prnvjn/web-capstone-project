@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,  } from 'react';
 
 const ProfileCreation = () => {
     const [profile, setProfile] = useState({
@@ -11,6 +11,8 @@ const ProfileCreation = () => {
         drinking: false,
         pets: false
     });
+
+
 
     const handleChange = (e) => {
         const { name, value, type, checked } = e.target;

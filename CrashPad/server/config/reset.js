@@ -127,7 +127,7 @@ const createUsersListing = async () => {
         amenities TEXT[] NOT NULL,
         description TEXT NOT NULL,
         image VARCHAR(255) NOT NULL,
-        age_range INTEGER[] NOT NULL,
+        
         gender VARCHAR(10) NOT NULL,
         smoking_allowed BOOLEAN NOT NULL,
         drinking_allowed BOOLEAN NOT NULL,
@@ -161,10 +161,10 @@ const seedUserListingTable = async () => {
 //     ]
   apartmentsData.forEach((apt)=>{
     const insertQuery = {
-        text: 'INSERT INTO listings ( user_id, name, address, price, bedrooms, bathrooms, amenities, description, image, age_range, gender, smoking_allowed, drinking_allowed, vegan_friendly, pets_allowed) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15) '
+        text: 'INSERT INTO listings ( user_id, name, address, price, bedrooms, bathrooms, amenities, description, image, gender, smoking_allowed, drinking_allowed, vegan_friendly, pets_allowed) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) '
     }
     const values = [
-        apt.user_id,apt.name,apt.address,apt.price,apt.bedrooms, apt.bathrooms,apt.amenities,apt.description, apt.image, apt.roommatePreferences.ageRange,apt.roommatePreferences.gender,apt.roommatePreferences.smokingAllowed,apt.roommatePreferences.drinkingAllowed, apt.roommatePreferences.veganFriendly, apt.roommatePreferences.petsAllowed
+        apt.user_id,apt.name,apt.address,apt.price,apt.bedrooms, apt.bathrooms,apt.amenities,apt.description, apt.image, apt.roommatePreferences.gender,apt.roommatePreferences.smokingAllowed,apt.roommatePreferences.drinkingAllowed, apt.roommatePreferences.veganFriendly, apt.roommatePreferences.petsAllowed
     ]
   
   

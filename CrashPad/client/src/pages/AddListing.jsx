@@ -56,7 +56,7 @@ const AddListing = () => {
         };
         try {
             await createListing(listingData);
-            window.location.href = '/view-listings';
+            window.location.href = '/';
         } catch (error) {
             console.error(error);
             // handle error here

@@ -101,7 +101,27 @@ const apartmentsData =
           "veganFriendly": false,
           "petsAllowed": false
         }
-      }
+      },
+      {
+        "id": 6,
+        "user_id" : 2,
+        "name": "Arbor Oaks",
+        "address": "Greek Row Dr",
+        "price": 1200,
+        "bedrooms": 1,
+        "bathrooms": 1,
+        "amenities": ["WI-FI", "Fireplace", "Pet-friendly"],
+        "description": "On campus housing with all the utilities included",
+        "image": "https://placehold.co/400x400",
+        "roommatePreferences": {
+          "ageRange": [30, 50],
+          "gender": "Any",
+          "smokingAllowed": true,
+          "drinkingAllowed": true,
+          "veganFriendly": false,
+          "petsAllowed": true
+        }
+      },
    ]
   ;
   

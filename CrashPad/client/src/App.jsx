@@ -21,7 +21,7 @@ function App() {
           const response = await fetch(`${API_URL}/api/listings`)
     
           const data = await response.json()
-          console.log(data)
+          
            setListings(data)
         }
       
@@ -38,10 +38,10 @@ function App() {
 
 
     return (
-        <AuthProvider >
+        <AuthProvider user={user} data={listings} logout={logout}>
             <Router>
-                <Navbar user={user} />
-{console.log(listings)}
+                <Navbar  />
+
                 <AppRoutes user={user} listings={listings} url={API_URL}/>
             </Router>
         </AuthProvider>
