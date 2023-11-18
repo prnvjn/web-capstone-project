@@ -8,7 +8,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'http://web-capstone-project-production.up.railway.app' 
+        target: 'https://web-capstone-project-production.up.railway.app' 
       }
     }
   }
