@@ -8,14 +8,14 @@ import listingRoutes from './routes/listingRoutes.js'
 const app = express()
 app.use(express.json())
 app.use(cors())
-const CLIENT_URL = process.env.NODE_ENV === 'production' ? 'https://?????.up.railway.app' : 'http://localhost:3000'
+const CLIENT_URL = process.env.NODE_ENV === 'production' ? 'https://web-capstone-project-production-4d99.up.railway.app' : 'http://localhost:3000'
 app.use(session({
   secret: 'codepath',
   resave: false,
   saveUninitialized: true
 }))
 app.use(cors({
-  origin: 'http://localhost:5173',
+  origin: CLIENT_URL,
   methods: 'GET,POST,PUT,DELETE,PATCH',
   credentials: true
 }))
@@ -32,7 +32,7 @@ passport.deserializeUser((user, done) => {
 
 
 app.get('/', (req, res) => {
-  res.redirect('http://localhost:5173')
+  res.redirect(CLIENT_URL)
 })
 
 app.get('/error',(req, res) => {
