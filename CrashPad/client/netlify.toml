@@ -1,7 +1,0 @@
-[build]
- functions="functions"
-
- [[redirects]]
-    to="/.netlify/functions/:splat"
-    from="/contact/*"
-    status=200
