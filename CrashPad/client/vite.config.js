@@ -8,7 +8,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'https://web-capstone-project-production.up.railway.app' 
+        target: 'https://crashpad-server.up.railway.app' 
       }
     }
   }
