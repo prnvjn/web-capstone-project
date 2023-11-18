@@ -26,7 +26,7 @@ const getAllListings = async (req,res) =>{
 export const getListingbyId = async (req, res) => {
     try {
         const query = `
-            SELECT listings.*, users.username 
+            SELECT listings.*, users.username , users.avatarurl
             FROM listings 
             INNER JOIN users ON listings.user_id = users.id 
             WHERE listings.id = $1;

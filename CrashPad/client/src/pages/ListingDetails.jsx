@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { getListingbyId } from '../services/CustomListingsAPI';
+import { Avatar } from '@mui/material';
 
 const ListingDetails = () => {
     const { id } = useParams();
@@ -30,18 +31,21 @@ const ListingDetails = () => {
             <div className="container mx-auto py-12 px-6 md:px-12">
                 <div className="bg-white rounded-lg shadow-lg overflow-hidden">
                     <img className="w-full h-64 object-cover" src={listing.image} alt={listing.name} />
-                    <div className="p-6">
-                        <h1 className="text-4xl font-bold text-gray-800 mb-4">{listing.name}</h1>
-                        <p className="text-gray-500 mb-2 italic">Posted by: {listing.username}</p>
-                        <p className="text-gray-700 text-lg mb-6">{listing.description}</p>
+                    <div className="p-6 ">
+                        <div className='flex flex-col'>
+                            <h1 className="text-4xl font-bold text-gray-800">{listing.name}</h1>
+                            <p className="text-gray-700 text-xl ">{listing.description}</p>
+                            <p className="text-gray-500 mb-2 italic flex items-center gap-2 self-end mb-6 text-lg">Posted by: {listing.username} <Avatar src={listing.avatarurl}/>   </p>
+                            
+                        </div>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
                             <div className="text-lg text-gray-700">
                                 <p><span className="font-semibold">Bedrooms:</span> {listing.bedrooms}</p>
                                 <p><span className="font-semibold">Bathrooms:</span> {listing.bathrooms}</p>
                             </div>
                             <div className="text-lg text-gray-700">
-                                <p><span className="font-semibold">Price:</span> <span className="text-blue-600">${listing.price}</span></p>
-                                <p><span className="font-semibold">Amenities:</span> {listing.amenities.join(', ')}</p>
+                                <p className='mb-3'><span className="font-semibold">Price:</span> <span className="text-blue-600">${listing.price}</span></p>
+                                <p><span className="font-semibold">Amenities:</span> <span className='flex '>{listing.amenities.map((e)=><span key={e} className='bg-blue-300 m-1 px-3 py-1 rounded-lg shadow-sm ' >{e}</span>)}</span></p>
                             </div>
                         </div>
                         <div className="text-lg text-gray-700 mb-6">

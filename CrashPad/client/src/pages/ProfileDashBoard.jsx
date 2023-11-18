@@ -10,7 +10,7 @@ const ProfileDashBoard = () => {
 
 
 const {user} = useAuth()
-const API_URL = 'http://localhost:3001' 
+
 // const [user, setUser] = useState([])
 const [listings, setListings] = useState([])
 const [editId, setEditId]=useState(null)
@@ -34,7 +34,7 @@ useEffect(() => {
   },[deleteListing])
   
   const fetchUSERListings = async () => {
-    const response = await fetch(`${API_URL}/api/listings/user/${user.id}`)
+    const response = await fetch(`/api/listings/user/${user.id}`)
 
     const data = await response.json()
     

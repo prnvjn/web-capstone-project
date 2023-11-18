@@ -41,13 +41,13 @@ const ViewListings = () => {
 
     return (
         <div className="container mx-auto flex flex-col items-stretch">
-            <button onClick={toggleFilters} className="bg-blue-500 text-white px-4 py-2 rounded-md m-4">
+            <button onClick={toggleFilters} className="bg-blue-500 text-white px-4 py-2 rounded-md m-4 w-24 ">
                 {showFilters ? 'Hide' : 'Show'} Filters
             </button>
             
             {showFilters && (
                 <div className="p-4 bg-gray-200 rounded-md m-4">
-                    <FormControlLabel
+                    <FormControlLabel 
                         control={
                             <Checkbox
                                 checked={filters.smokingAllowed}
@@ -90,7 +90,7 @@ const ViewListings = () => {
                 </div>
             )}
             {filteredData.map((data) => (
-      <div key={data.id} className="flex gap-8 m-10 bg-slate-100  max-w-4xl shadow-sm rounded-lg">
+      <div key={data.id} className="flex gap-8 m-10 bg-slate-100 mx-auto  w-full max-w-4xl shadow-sm rounded-lg">
        <div >
         <img src={data.image} className="w-48 rounded-l-lg" />
       </div>
