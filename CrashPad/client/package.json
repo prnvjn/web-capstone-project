@@ -5,8 +5,8 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "start": "serve build -s -n -L -p $PORT",
-    "dev": "react-scripts start",
+    "start": "npx http-server ./dist",
+    "dev": "vite",
     "build": "vite build"
   },
   "dependencies": {

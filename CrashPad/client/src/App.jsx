@@ -6,7 +6,7 @@ import AppRoutes from './AppRoutes';
 
 
 function App() {
-  const API_URL = process.env.NODE_ENV === 'production' ? 'https://crashpad-server.up.railway.app':'http://localhost:3001' 
+  const API_URL = import.meta.env.PROD === 'production' ? 'https://crashpad-server.up.railway.app':"" 
     const [user, setUser] = useState([])
 
 
