@@ -8,14 +8,18 @@ import listingRoutes from './routes/listingRoutes.js'
 const app = express()
 app.use(express.json())
 app.use(cors())
+<<<<<<< HEAD
 // const CLIENT_URL = process.env.NODE_ENV === 'production' ? 'https://?????.up.railway.app' : 'http://http://localhost:5173'
+=======
+const CLIENT_URL = process.env.NODE_ENV === 'production' ? 'https://client-production-4fbb.up.railway.app' : 'http://localhost:3000'
+>>>>>>> e4e7dc8f9eb2a7cf5ceb01252133eff963d9ac03
 app.use(session({
   secret: 'codepath',
   resave: false,
   saveUninitialized: true
 }))
 app.use(cors({
-  origin: 'http://localhost:5173',
+  origin: CLIENT_URL,
   methods: 'GET,POST,PUT,DELETE,PATCH',
   credentials: true
 }))
@@ -32,7 +36,7 @@ passport.deserializeUser((user, done) => {
 
 
 app.get('/', (req, res) => {
-  res.redirect('http://localhost:5173')
+  res.redirect(CLIENT_URL)
 })
 
 app.get('/error',(req, res) => {
