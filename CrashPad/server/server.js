@@ -8,7 +8,7 @@ import listingRoutes from './routes/listingRoutes.js'
 const app = express()
 app.use(express.json())
 app.use(cors())
-const CLIENT_URL = process.env.NODE_ENV === 'production' ? 'https://?????.up.railway.app' : 'http://localhost:3000'
+// const CLIENT_URL = process.env.NODE_ENV === 'production' ? 'https://?????.up.railway.app' : 'http://http://localhost:5173'
 app.use(session({
   secret: 'codepath',
   resave: false,

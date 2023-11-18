@@ -63,7 +63,7 @@ const apartmentsData =
       // Add more listings as needed
       {
         "id": 4,
-        "user_id" : 1,
+        "user_id" : 3,
         "name": "Quaint Countryside Cottage",
         "address": "987 Rural Rd, Countryside",
         "price": 1200,
@@ -84,7 +84,7 @@ const apartmentsData =
       // Add more listings as needed
       {
         "id": 5,
-       "user_id" : 1,
+       "user_id" : 3,
         "name": "Sunny Beachfront Condo",
         "address": "456 Ocean Blvd, Beach City",
         "price": 2500,
@@ -106,6 +106,26 @@ const apartmentsData =
         "id": 6,
         "user_id" : 2,
         "name": "Arbor Oaks",
+        "address": "Greek Row Dr",
+        "price": 1200,
+        "bedrooms": 1,
+        "bathrooms": 1,
+        "amenities": ["WI-FI", "Fireplace", "Pet-friendly"],
+        "description": "On campus housing with all the utilities included",
+        "image": "https://placehold.co/400x400",
+        "roommatePreferences": {
+          "ageRange": [30, 50],
+          "gender": "Any",
+          "smokingAllowed": true,
+          "drinkingAllowed": true,
+          "veganFriendly": false,
+          "petsAllowed": true
+        }
+      },
+      {
+        "id": 7,
+        "user_id" : 3,
+        "name": "University Village",
         "address": "Greek Row Dr",
         "price": 1200,
         "bedrooms": 1,
