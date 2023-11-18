@@ -8,7 +8,6 @@
     "start": "serve build -s -n -L -p $PORT",
     "dev": "react-scripts start",
     "build": "vite build"
-   
   },
   "dependencies": {
     "@emotion/react": "^11.11.1",
@@ -17,7 +16,8 @@
     "@mui/material": "^5.14.17",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.18.0"
+    "react-router-dom": "^6.18.0",
+    "serve": "^14.2.1"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",
