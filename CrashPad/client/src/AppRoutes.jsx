@@ -39,7 +39,7 @@ const {user, data} = useAuth()
         // Fazeel code-base
         // { path: "/view-listings", element: <ViewListings /> },
         // 
-        // { path: "/listings/:id", element: <ListingDetails /> },
+        { path: "/listings/:id", element: <ListingDetails /> },
         // { path: "/edit-listing/:id", element: <EditListing /> },
 
 
