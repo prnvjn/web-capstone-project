@@ -6,7 +6,7 @@ import AppRoutes from './AppRoutes';
 
 
 function App() {
-    const API_URL = 'http://localhost:3001' 
+  const API_URL = process.env.NODE_ENV === 'production' ? 'web-capstone-project-production.up.railway.app':'http://localhost:3001' 
     const [user, setUser] = useState([])
 
 
@@ -20,7 +20,7 @@ function App() {
        
         getUser()
        
-      }, []);
+      }, [API_URL]);
 
  
 
