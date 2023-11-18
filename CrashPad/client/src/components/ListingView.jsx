@@ -3,7 +3,7 @@
 export const ListingView = (props) => {
   const data = props.data
   return (
-    <div className="flex gap-8 m-10 bg-slate-100  max-w-4xl shadow-sm rounded-lg">
+    <div className="flex gap-8 m-10 bg-slate-100  max-w-4xl shadow-sm rounded-lg mx-auto w-full ">
       <div >
         <img src={data.image} className="w-48 rounded-l-lg" />
       </div>
@@ -20,9 +20,11 @@ export const ListingView = (props) => {
         <div className="flex justify-between items-center">
           <span className="font-bold mb-2">${data.price}</span>
           <span>
-            <button className="bg-blue-600 text-white px-4 py-2 rounded-md transition duration-300 hover:bg-blue-500 hover:text-white">
-              Click me
-            </button>
+            <Link to={`/listings/${data.id}`}>
+             <button className="bg-blue-600 text-white px-4 py-2 rounded-md transition duration-300 hover:bg-blue-500 hover:text-white">
+               Click me
+                </button>
+              </Link>
 
           </span>
         </div>
