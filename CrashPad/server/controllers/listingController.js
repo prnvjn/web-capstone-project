@@ -1,50 +1,52 @@
-import { pool } from '../config/database.js';
-import 'dotenv/config'
+import { pool } from "../config/database.js";
 
-export const getCustomListings = async (req, res) => {
+const getAllListings = async (req,res) =>{
     try {
-        const result = await pool.query('SELECT * FROM listings');
-        console.log(result.rows); 
-      res.json(result.rows);
+        const results = await pool.query('SELECT * FROM listings ORDER BY id DESC')
+        res.status(200).json(results.rows)
+    }
+    catch (error) {
+        res.status(409).json( { error: error.message } )
+      }
+}
+  
+ const getListingbyuserID = async (req, res) => {
+
+    try {
+        const result = await pool.query('SELECT * FROM listings WHERE user_id = $1', [req.params.userId]);
+        // console.log(result.rows);
+        res.json(result.rows);
     } catch (error) {
-      console.error(error);
+        console.error(error);
         res.status(500).send('Server Error');
         res.status(500).send(error.message);
     }
 };
-  
+
 export const getListingbyId = async (req, res) => {
     try {
-        const result = await pool.query('SELECT * FROM listings WHERE id = $1', [req.params.id]);
+        const query = `
+            SELECT listings.*, users.username , users.avatarurl
+            FROM listings 
+            INNER JOIN users ON listings.user_id = users.id 
+            WHERE listings.id = $1;
+        `;
+
+        const result = await pool.query(query, [req.params.id]);
         console.log(result.rows);
         res.json(result.rows);
     } catch (error) {
         console.error(error);
         res.status(500).send('Server Error');
-        res.status(500).send(error.message);
     }
 };
 
-export const deleteItem = async (req, res) => {
-    try {
-        const result = await pool.query('DELETE FROM listings WHERE id = $1', [req.params.id]);
-        console.log(result.rows);
-        res.json(result.rows);
-    } catch (error) {
-        console.error(error);
-        res.status(500).send('Server Error');
-        res.status(500).send(error.message);
-    }
-};
-
-// INSERT INTO listings (user_id, name, address, price, bedrooms, bathrooms, amenities, description, image, gender, smoking_allowed, drinking_allowed, vegan_friendly, pets_allowed)
-
-export const createListing = async (req, res) => {
+const createListing = async (req, res) => {
+    
     const {
         user_id, name, address, price, bedrooms, 
         bathrooms, amenities, description, image, 
-        gender, smoking_allowed, drinking_allowed, 
-        vegan_friendly, pets_allowed
+        roommatePreferences
     } = req.body;
 
     const query = `
@@ -59,8 +61,8 @@ export const createListing = async (req, res) => {
     const values = [
         user_id, name, address, price, bedrooms, 
         bathrooms, amenities, description, image, 
-        gender, smoking_allowed, drinking_allowed, 
-        vegan_friendly, pets_allowed
+        roommatePreferences.gender, roommatePreferences.smokingAllowed, roommatePreferences.drinkingAllowed, 
+        roommatePreferences.veganFriendly, roommatePreferences.petsAllowed
     ];
 
     try {
@@ -72,7 +74,7 @@ export const createListing = async (req, res) => {
     }
 };
 
-export const updateListing = async (req, res) => {
+const updateListing = async (req, res) => {
     const id = req.params.id; // Assuming the listing's ID is passed as a URL parameter
     const {
         name, address, price, bedrooms, 
@@ -118,3 +120,19 @@ export const updateListing = async (req, res) => {
         res.status(500).send('Server Error');
     }
 };
+
+const deleteItem = async (req, res) => {
+    try {
+        const result = await pool.query('DELETE FROM listings WHERE id = $1', [req.params.id]);
+        console.log(result.rows);
+        res.json(result.rows);
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Server Error');
+        res.status(500).send(error.message);
+    }
+};
+
+export default {
+    getAllListings,getListingbyuserID,getListingbyId,createListing,updateListing, deleteItem
+}

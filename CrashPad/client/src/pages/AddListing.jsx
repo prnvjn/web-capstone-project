@@ -1,11 +1,16 @@
 import React, { useState } from 'react';
 import { TextField, Button, Checkbox, FormControlLabel, FormGroup, MenuItem, Select, InputLabel, FormControl, Chip, OutlinedInput, Box } from '@mui/material';
 import { createListing } from '../services/CustomListingsAPI';
+import { useAuth } from '../context/AuthContext';
+import { useNavigate } from 'react-router-dom';
 
 
 const AddListing = () => {
+
+    const {user} = useAuth()
+
     const [listing, setListing] = useState({
-        user_id: 1,
+        user_id: user.id,
         name: '',
         address: '',
         price: '',
@@ -22,12 +27,25 @@ const AddListing = () => {
             petsAllowed: false
         }
     });
-
+    const navigate = useNavigate()
     const amenitiesOptions = ["Wi-Fi", "Parking", "Laundry", "Pool", "Gym", "Air Conditioning"];
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
-        setListing({ ...listing, [name]: value });
+    
+        if (name === "gender") {
+            // If the change is for the gender field, update it within roommatePreferences
+            setListing({ 
+                ...listing, 
+                roommatePreferences: { 
+                    ...listing.roommatePreferences, 
+                    [name]: value 
+                } 
+            });
+        } else {
+            // For all other fields, update the state as usual
+            setListing({ ...listing, [name]: value });
+        }
     };
 
     const handleCheckboxChange = (e) => {
@@ -55,8 +73,9 @@ const AddListing = () => {
             image: listing.image || 'https://via.placeholder.com/400' // Ensure a default image is set
         };
         try {
+            console.log(listingData)
             await createListing(listingData);
-            window.location.href = '/view-listings';
+            navigate("/")
         } catch (error) {
             console.error(error);
             // handle error here

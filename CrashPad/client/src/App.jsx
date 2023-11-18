@@ -1,4 +1,4 @@
-import React from 'react';
+import React ,{useEffect,useState} from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext'; // Adjust the path as needed
 import Navbar from './components/Navbar';
@@ -6,11 +6,38 @@ import AppRoutes from './AppRoutes';
 
 
 function App() {
+    const API_URL = 'http://localhost:3001' 
+    const [user, setUser] = useState([])
+
+
+    useEffect(() => {
+        const getUser = async () => {
+          const response = await fetch(`${API_URL}/auth/login/success`, { credentials: 'include' } )
+          const json = await response.json()
+          setUser(json.user)
+        }
+    
+       
+        getUser()
+       
+      }, []);
+
+ 
+
+      const logout = async () => {
+        const url = `${API_URL}/auth/logout`
+        const response = await fetch(url, { credentials: 'include' })
+        await response.json()
+        window.location.href = '/'
+      }
+
+
     return (
-        <AuthProvider>
+        <AuthProvider user={user}  logout={logout} >
             <Router>
-                <Navbar />
-                <AppRoutes />
+                <Navbar  />
+
+                <AppRoutes user={user}  url={API_URL}/>
             </Router>
         </AuthProvider>
     );

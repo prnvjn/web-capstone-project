@@ -1,17 +1,18 @@
 {
   "name": "client",
   "private": true,
+  "proxy": "http://localhost:3001",
   "version": "0.0.0",
   "type": "module",
-  
   "scripts": {
     "dev": "vite",
-    "build": "vite build"
+    "build": "vite build",
+    "start": "npx http-server ./dist"
   },
   "dependencies": {
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
-    "@mui/icons-material": "^5.14.16",
+    "@mui/icons-material": "^5.14.18",
     "@mui/material": "^5.14.17",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
