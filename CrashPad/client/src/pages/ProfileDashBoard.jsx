@@ -1,6 +1,6 @@
 import React,{useState,useEffect} from 'react'
 import { useAuth } from '../context/AuthContext'
-import UserListing from '../components/userListing'
+import UserListing from '../components/UserListing'
 import EditListing from './EditListing'
 import { Profile } from '../components/Profile'
 import { deleteItem } from '../services/CustomListingsAPI'
