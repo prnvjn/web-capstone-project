@@ -37,12 +37,14 @@ Users can create a basic profile with details like gender, age, and a short desc
 
 <img src="./planning/images/profilecreation.gif">
 
-### [Search for Roommates]
+### [Search for Roommates]✅
 
 Users can search for potential roommates by location ,
 Basic filtering options for gender, budget,tempory or long-term accommodation and preferred move-in date
+and delete the listing from user dashboard
 
-[gif goes here]
+<img src="./planning/images/delete and filtering.gif">
+
 
 ### [ Apartments Listings]✅
 

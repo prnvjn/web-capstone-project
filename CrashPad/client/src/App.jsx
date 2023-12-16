@@ -6,7 +6,7 @@ import AppRoutes from './AppRoutes';
 
 
 function App() {
-    const API_URL = 'http://localhost:3001' 
+  const API_URL = import.meta.env.PROD === 'production' ? 'https://crashpad-server.up.railway.app':"" 
     const [user, setUser] = useState([])
 
 
@@ -20,7 +20,7 @@ function App() {
        
         getUser()
        
-      }, []);
+      }, [API_URL]);
 
  
 

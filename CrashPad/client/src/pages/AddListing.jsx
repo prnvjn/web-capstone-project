@@ -32,7 +32,20 @@ const AddListing = () => {
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
-        setListing({ ...listing, [name]: value });
+    
+        if (name === "gender") {
+            // If the change is for the gender field, update it within roommatePreferences
+            setListing({ 
+                ...listing, 
+                roommatePreferences: { 
+                    ...listing.roommatePreferences, 
+                    [name]: value 
+                } 
+            });
+        } else {
+            // For all other fields, update the state as usual
+            setListing({ ...listing, [name]: value });
+        }
     };
 
     const handleCheckboxChange = (e) => {
@@ -79,6 +92,7 @@ const AddListing = () => {
             },
         },
     };
+    
 
     return (
         <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', m: 3 }}>
